@@ -1,15 +1,36 @@
-# app-presupuestos
-Aplicación de escritorio en Python para gestión comercial y generación automática de presupuestos en PDF.
-### Arquitectura del Proyecto (Patrón MVC)
+# Sistema de Gestión de Órdenes de Trabajo (OT)
 
-El proyecto está modularizado aplicando el patrón **Model-View-Controller (MVC)** para separar la lógica de negocio, la interfaz gráfica y el acceso a datos:
+Sistema de gestión de mantenimiento industrial y trazabilidad operacional diseñado bajo arquitectura **MVC (Model-View-Controller)** para optimizar el control de mantenimiento en planta.
 
-- **Modelos (`*modelo.py`):** Gestión de la persistencia y consultas SQL a la base de datos SQLite (`torneria.db`).
-- **Vistas (`*vista.py`):** Interfaces de usuario desarrolladas en Tkinter para la interacción con el usuario.
-- **Controladores (`*controlador.py`):** Lógica de negocio que orquesta la interacción entre las vistas y los modelos.
-- **Módulos Principales:**
-  - `principal*.py`: Punto de entrada de la aplicación y navegación general.
-  - `abmpresupuestos*.py` / `presupuestos*.py`: Módulos para alta, baja, modificación y consulta de presupuestos.
-  - `mp*.py` / `mpabm*.py`: Gestión de materias primas e insumos.
-  - `pdf.py`: Motor de generación de reportes comerciales en PDF.
-  - `seleccionbd.py`: Configuración y conexión dinámica a la base de datos.
+---
+
+##  Tecnologías Utilizadas
+
+- **Lenguaje:** Python
+- **Interfaz Gráfica (GUI):** Tkinter
+- **Base de Datos:** SQLite / MySQL
+- **Generación de Reportes:** ReportLab (exportación dinámica a PDF)
+- **Despliegue:** PyInstaller (compilación a ejecutable independiente `.exe`)
+
+---
+
+##  Características Principales
+
+- **Gestión de Órdenes de Trabajo:** Registro, seguimiento y trazabilidad completa de OTs preventivas y correctivas.
+- **Control de Mantenimiento:** Organización de tareas por equipo, prioridad y estado.
+- **Generación de Reportes:** Creación automática de reportes e informes operacionales en formato PDF.
+- **Métricas y KPIs:** Facilita el análisis de tiempos de parada y la recolección de datos para el cálculo de eficiencia (**OEE**).
+- **Separación de Responsabilidades:** Código estructurado mediante patrón MVC para garantizar escalabilidad y fácil mantenimiento.
+
+---
+
+##  Arquitectura del Proyecto
+
+```text
+├── config/          # Configuraciones y conexión a base de datos
+├── controllers/     # Lógica de negocio y controladores
+├── models/          # Modelos de datos y consultas SQL
+├── views/           # Interfaz de usuario (Tkinter)
+├── reports/         # Plantillas y generador de PDF (ReportLab)
+├── assets/          # Recursos estáticos (imágenes, íconos)
+└── main.py          # Punto de entrada de la aplicación
